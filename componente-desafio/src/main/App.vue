@@ -12,10 +12,10 @@
 </template>
 
 <script>
-import Footer from "./Footer.vue";
-import Carousel from "./Carousel.vue";
-import Toolbar from "./Toolbar.vue";
-import Menu from "./Menu.vue";
+import Footer from "../components/templates/Footer.vue"; //caminho relativo 
+import Carousel from "@/components/widgets/Carousel.vue"; //caminho absoluto com @ pega a partir do src
+import Toolbar from "../components/templates/Toolbar.vue";
+import Menu from "@/components/templates/Menu.vue";
 
 export default {
   components: {
