@@ -1,14 +1,15 @@
 <template>
-    <div class="tasks">
+    <div class="tasks-grid">
         <template>
-            <div v-for="task in tasks" :key="task.name">
-                {{task.name}}
-            </div>
+            <Task v-for="task in tasks" :key="task.name" :task="task"/>
         </template>
     </div>
     </template>
 <script>
+import Task from '@/components/Task.vue'
+
 export default {
+    components:{Task},
     props:{
         tasks: {type: Array, require: true}
     }
