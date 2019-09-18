@@ -32,7 +32,7 @@ export default {
         cursor: pointer;
         user-select: none;
         display: flex;
-        justify-content: center;
+        justify-content: center;  
         align-items: center;
     }
 
