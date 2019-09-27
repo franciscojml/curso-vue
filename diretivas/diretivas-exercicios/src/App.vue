@@ -5,7 +5,7 @@
 		<p v-text="'Usando diretivas v-text'"></p>
 		<p v-html="'Usando diretivas <strong>v-html</strong>'"></p>
 		<hr/>
-		<p v-destaque="'blue'">Usando diretiva personalizada</p>
+		<p v-destaque:fundo="'lightblue'">Usando diretiva personalizada</p>
 		<p v-destaque="cor">Usando diretiva personalizada</p>
 	</div>
 </template>
