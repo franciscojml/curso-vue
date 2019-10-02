@@ -7,19 +7,11 @@
     </div>
 </template>
 <script>
+import FrutasMixin from '@/frutasMixin'
+
 export default {
-    data(){
-        return{
-            fruta: '',
-            frutas: ['banana', 'maca', 'laranja']
-        }
-    },
-    methods: {
-        add(){
-            this.frutas.push(this.fruta)
-            this.fruta = ''
-        }
-    },
+    mixins:[FrutasMixin]
+    
 }
 </script>
 <style>
