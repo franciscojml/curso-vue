@@ -1,13 +1,16 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
-import stocks from '@/store/modules/stocks'
-import portfolio from '@/store/modules/portfolio'
+import actions from './actions'
+
+import stocks from './modules/stocks'
+import portfolio from './modules/portfolio'
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
-    modules:{
+    actions,
+    modules: {
         stocks,
         portfolio
     }

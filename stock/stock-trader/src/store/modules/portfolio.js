@@ -4,11 +4,11 @@ export default {
         stocks: []
     },
     mutations: {
-        buyStocks(state, {stockId, quantity, stockPrice}){
+        buyStock(state, { stockId, quantity, stockPrice }) {
             const record = state.stocks.find(element => element.id == stockId)
-            if (record){
+            if (record) {
                 record.quantity += quantity
-            }else{
+            } else {
                 state.stocks.push({
                     id: stockId,
                     quantity: quantity
@@ -16,23 +16,27 @@ export default {
             }
             state.funds -= stockPrice * quantity
         },
-        sellStock(state, {stockId, quantity, stockPrice}){
+        sellStock(state, { stockId, quantity, stockPrice }) {
             const record = state.stocks.find(element => element.id == stockId)
-            if(record.quantity > quantity){
-                record.quantity -+ quantity
-            }else{
-                state.stocks.splice(state.stocks.indexOf(record, 1))
+            if (record.quantity > quantity) {
+                record.quantity -= quantity
+            } else {
+                state.stocks.splice(state.stocks.indexOf(record), 1)
             }
             state.funds += stockPrice * quantity
+        },
+        setPortfolio(state, portfolio) {
+            state.funds = portfolio.funds
+            state.stocks = portfolio.stockPortfolio ? portfolio.stockPortfolio : []
         }
     },
-    actions:{
-        sellStock({commit}, order){
+    actions: {
+        sellStock({ commit }, order) {
             commit('sellStock', order)
         }
     },
-    getters:{
-        stockPortfolio(state, getters){
+    getters: {
+        stockPortfolio(state, getters) {
             return state.stocks.map(stock => {
                 const record = getters.stocks.find(element => element.id == stock.id)
                 return {
@@ -42,6 +46,9 @@ export default {
                     price: record.price
                 }
             })
+        },
+        funds(state) {
+            return state.funds
         }
     }
 }
